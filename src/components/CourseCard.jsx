@@ -30,7 +30,7 @@ const CourseCard = ({ course }) => {
       </div>
       <div className="p-8 flex flex-col grow space-y-4">
         <div className="space-y-2">
-          <Link href={`/courses/$${_id}`}>
+          <Link href={`/courses/${_id}`}>
             <h3 className="text-xl font-bold leading-tight line-clamp-2 hover:text-blue-600 transition-colors">
               {title}
             </h3>
