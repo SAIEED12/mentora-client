@@ -7,11 +7,6 @@ import { User, Mail, Lock, ArrowRight } from 'lucide-react';
 
 export default function Register() {
 
-    const handleRegister = async(e)=> {
-        e.preventDeafult()
-        const formData = new FormData(e.currentTarget)
-    }
-
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
             <div className="grow flex items-center justify-center p-4">
@@ -102,7 +97,6 @@ export default function Register() {
                             <Button
                                 color="primary"
                                 type="submit"
-                                isLoading={loading}
                                 className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-blue-600/20 group"
                             >
                                 Create Account <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
