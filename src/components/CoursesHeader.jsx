@@ -1,6 +1,4 @@
 
-import SearchBar from "./SearchBar";
-
 const CoursesHeader = () => {
 
     return (
@@ -16,7 +14,7 @@ const CoursesHeader = () => {
                 </p>
 
                 <div className="max-w-2xl mx-auto pt-4">
-                    <SearchBar />
+
                 </div>
             </div>
         </header>

@@ -2,10 +2,12 @@ import { Button } from "@heroui/react";
 import { ArrowRight } from "lucide-react";
 
 import FeaturedCard from "./FeaturedCard";
+import { featuredCourses } from "@/lib/courses/data";
+
 
 
 const FeaturedCourses = async () => {
-
+    const courses = await featuredCourses()
 
     return (
         <section className="py-24 bg-slate-50">
@@ -28,10 +30,9 @@ const FeaturedCourses = async () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <FeaturedCard />
-                    <FeaturedCard />
-                    <FeaturedCard />
-                    <FeaturedCard />
+                    {
+                        courses?.map(course => <FeaturedCard key={course?._id} course={course}/>)
+                    }
                 </div>
             </div>
         </section>
