@@ -1,8 +1,11 @@
+const dns = require("node:dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-const client = new MongoClient(process.env.MOBGODB_URI);
+const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db('mentoradb');
 
 export const auth = betterAuth({
@@ -10,4 +13,8 @@ export const auth = betterAuth({
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client
   }),
+  emailAndPassword: {
+    enabled: true,
+  },
+  trustedOrigins: ["http://localhost:3000"],
 });

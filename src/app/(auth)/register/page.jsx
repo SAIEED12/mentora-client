@@ -4,8 +4,29 @@ import { Button, Input } from '@heroui/react';
 
 import Link from 'next/link';
 import { User, Mail, Lock, ArrowRight } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { authClient, signUp } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 export default function Register() {
+    const router = useRouter()
+
+        const handleRegister = async(e)=> {
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget)
+        const registerData = Object.fromEntries(formData.entries())
+        // console.log(formData)
+        const { data, error } = await authClient.signUp.email({
+            ...registerData,
+            
+        })
+
+        if(error){
+             toast.error(error.message || "Registration Failed!");
+            return
+        }
+        router.push("/")
+    }
 
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
@@ -23,6 +44,7 @@ export default function Register() {
 
                         <form
                             className="space-y-6"
+                            onSubmit={handleRegister}
                         >
                             <div className="space-y-2">
                                 <label

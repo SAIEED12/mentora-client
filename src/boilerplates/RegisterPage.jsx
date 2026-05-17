@@ -4,13 +4,11 @@ import { Button, Input } from '@heroui/react';
 
 import Link from 'next/link';
 import { User, Mail, Lock, ArrowRight } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
 
 export default function Register() {
 
-    const handleRegister = async(e)=> {
-        e.preventDeafult()
-        const formData = new FormData(e.currentTarget)
-    }
+
 
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
@@ -28,6 +26,7 @@ export default function Register() {
 
                         <form
                             className="space-y-6"
+                            
                         >
                             <div className="space-y-2">
                                 <label
@@ -102,7 +101,6 @@ export default function Register() {
                             <Button
                                 color="primary"
                                 type="submit"
-                                isLoading={loading}
                                 className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-blue-600/20 group"
                             >
                                 Create Account <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
