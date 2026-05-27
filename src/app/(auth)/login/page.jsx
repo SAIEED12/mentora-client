@@ -7,8 +7,30 @@ import Link from 'next/link';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 
 import Image from 'next/image';
+import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 export default function Login() {
+
+     const handleLogin = async(e)=> {
+            e.preventDefault()
+            const formData = new FormData(e.currentTarget)
+            const loginData = Object.fromEntries(formData.entries())
+            // console.log(formData)
+            const { data, error } = await authClient.signIn.email({
+                ...loginData,
+                 callbackURL: "/"
+                
+            })
+
+
+    
+            if(error){
+                 toast.error(error.message || "Login Failed!");
+                return
+            }
+            // router.push("/")
+        }
 
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50">
@@ -52,6 +74,7 @@ export default function Login() {
 
                         <form
                             className="space-y-6"
+                            onSubmit={handleLogin}
                         >
                             <div className="space-y-2">
                                 <label

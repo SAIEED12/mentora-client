@@ -52,13 +52,13 @@ const CourseCard = ({ course }) => {
         <div className="pt-6 mt-auto border-t border-slate-100 flex justify-between items-center">
           <span className="text-2xl font-black text-blue-600">${price}</span>
 
-          <Button
+          <Link href={`/courses/${_id}`}
             variant="flat"
             color="primary"
-            className="font-bold rounded-xl px-6"
+            className="font-bold rounded-xl px-6 hover:text-blue-600"
           >
             Learn More
-          </Button>
+          </Link>
         </div>
       </div>
     </div>
