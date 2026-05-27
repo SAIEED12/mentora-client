@@ -66,6 +66,7 @@ export default function AddCourse() {
                             </label>
                             <Input
                                 id="title"
+                                name="title"
                                 required
                                 placeholder="e.g. Next.js 15 Masterclass"
                                 className="w-full h-14 border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 rounded-2xl bg-white transition-all duration-300 shadow-none"
@@ -81,6 +82,7 @@ export default function AddCourse() {
                             </label>
                             <TextArea
                                 id="description"
+                                name="description"
                                 required
                                 placeholder="What will students learn in this course?"
                                 className="w-full h-32 border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 rounded-2xl bg-white transition-all duration-300 shadow-none resize-none"
@@ -96,6 +98,7 @@ export default function AddCourse() {
                             </label>
                             <Input
                                 id="thumbnail"
+                                name="thumbnail"
                                 required
                                 type="url"
                                 placeholder="https://images.unsplash.com/..."
@@ -148,6 +151,7 @@ export default function AddCourse() {
                             </label>
                             <Input
                                 id="price"
+                                name="price"
                                 required
                                 type="number"
                                 placeholder="0.00"
@@ -166,6 +170,7 @@ export default function AddCourse() {
                             </label>
                             <Input
                                 id="duration"
+                                name="duration"
                                 required
                                 type="text"
                                 placeholder="e.g. 12h 30m"
