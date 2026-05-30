@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 
 const handleAddCourse = async (e) => {
+  e.preventDefault();
   const formData = new FormData(e.currentTarget);
   const courses = Object.fromEntries(formData.entries());
 
@@ -65,7 +66,7 @@ export default function AddCourse() {
           </p>
         </div>
 
-        <form action={handleAddCourse} className="space-y-8">
+        <form onSubmit={handleAddCourse} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="md:col-span-2 space-y-2">
               <label
@@ -104,6 +105,22 @@ export default function AddCourse() {
                 htmlFor="thumbnail"
                 className="text-sm font-bold text-slate-700 ml-1"
               >
+                Instructor
+              </label>
+              <Input
+                id="instructor"
+                name="instructor"
+                required
+                placeholder="Course Instructor"
+                startContent={<ImageIcon className="w-5 h-5 text-slate-400" />}
+                className="w-full h-14 border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 rounded-2xl bg-white transition-all duration-300 shadow-none"
+              />
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="thumbnail"
+                className="text-sm font-bold text-slate-700 ml-1"
+              >
                 Thumbnail URL
               </label>
               <Input
@@ -123,6 +140,7 @@ export default function AddCourse() {
               </label>
               <Select
                 id="category"
+                name="category"
                 required
                 placeholder="Select a category"
                 className="w-full"
@@ -132,11 +150,6 @@ export default function AddCourse() {
                     <List className="w-5 h-5 text-slate-400 group-data-[focus-within=true]:text-blue-600 transition-colors" />
                     <SelectValue className="font-medium text-slate-600" />
                   </div>
-                  <SelectIndicator className="ml-auto">
-                    <div className="text-slate-400 group-data-[focus-within=true]:text-blue-600 transition-colors">
-                      <List className="w-4 h-4" />
-                    </div>
-                  </SelectIndicator>
                 </SelectTrigger>
                 <SelectPopover className="bg-white border border-slate-200 shadow-2xl rounded-2xl p-2 mt-2">
                   <ListBox>
