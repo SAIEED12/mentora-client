@@ -18,7 +18,6 @@ export default function Register() {
         // console.log(formData)
         const { data, error } = await authClient.signUp.email({
             ...registerData,
-            
         })
 
         if(error){
